@@ -1,0 +1,31 @@
+﻿@model ManageVolunteersViewModel
+
+<h1> Manage Volunteers</h1>
+<form asp-action="SearchVolunteers">
+    <label>Last Name: </label>
+    <input asp-for="LastName"/>
+    <input type="submit" value="Search" />
+</form>
+
+
+@if(ViewBag.Volunteers != null){
+    <table>
+
+        <tr>
+
+            <th>Last Name</th> 
+            <th>First Name</th>
+
+        </tr>
+        @foreach (var item in (List<Volunteer>)ViewBag.Volunteers)
+        {
+            <tr>
+
+                <td>@item.LastName</td>
+                <td>@item.FirstName</td>
+
+            </tr>
+        }
+    </table>
+
+}
